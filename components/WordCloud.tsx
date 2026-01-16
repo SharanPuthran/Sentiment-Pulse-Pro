@@ -16,7 +16,7 @@ const WordCloud: React.FC<Props> = ({ items }) => {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-6 p-6 min-h-[250px] bg-white/40 rounded-3xl border border-[#d1d9e6]">
+    <div className="flex flex-wrap items-center justify-center gap-6 p-6 min-h-[250px] bg-white/40 rounded-3xl border border-[#fed7aa]">
       {items.map((item, idx) => (
         <span
           key={idx}
@@ -26,7 +26,7 @@ const WordCloud: React.FC<Props> = ({ items }) => {
           }}
           className={`
             cursor-default transition-all duration-300 hover:scale-115 hover:opacity-100 font-bold tracking-tighter uppercase
-            ${item.sentiment === 'praise' ? 'text-[#0073CF]' : 'text-[#003366] opacity-60'}
+            ${item.sentiment === 'praise' ? 'text-[#f97316]' : 'text-[#9a3412] opacity-60'}
           `}
           title={`${item.sentiment}: ${item.value} mentions`}
         >

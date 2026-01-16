@@ -118,18 +118,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pb-20 bg-[#f0f4f8]">
-      <header className="bg-white/95 backdrop-blur-md border-b border-[#d1d9e6] sticky top-0 z-50 px-6">
+    <div className="min-h-screen pb-20 bg-[#fff7ed]">
+      <header className="bg-white/95 backdrop-blur-md border-b border-[#fed7aa] sticky top-0 z-50 px-6">
         <div className="max-w-7xl mx-auto h-20 flex items-center justify-between">
           <div className="flex items-center gap-6">
             {/* IndiGo Official Logo Representation */}
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.reload()}>
               <div className="flex items-baseline">
-                <span className="text-4xl font-extrabold text-[#003366] tracking-tight">Indi</span>
-                <span className="text-4xl font-normal text-[#003366] tracking-tight">Go</span>
+                <span className="text-4xl font-extrabold text-[#9a3412] tracking-tight">Indi</span>
+                <span className="text-4xl font-normal text-[#9a3412] tracking-tight">Go</span>
               </div>
               <div className="ml-1 relative w-10 h-10 flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-8 h-8 text-[#003366]">
+                <svg viewBox="0 0 100 100" className="w-8 h-8 text-[#9a3412]">
                   {/* Simplified dotted plane icon as per IndiGo branding */}
                   <circle cx="20" cy="50" r="4" fill="currentColor" />
                   <circle cx="35" cy="50" r="4" fill="currentColor" />
@@ -147,7 +147,7 @@ const App: React.FC = () => {
             <div className="h-10 w-[1px] bg-gray-200 hidden md:block"></div>
             
             <div className="hidden md:block">
-              <h2 className="text-[10px] font-black uppercase text-indigo-400 tracking-[3px] mb-0.5">Sentiment Intelligence</h2>
+              <h2 className="text-[10px] font-black uppercase text-orange-400 tracking-[3px] mb-0.5">Sentiment Intelligence</h2>
               {isLiveSyncing && (
                 <div className="flex items-center gap-1.5 text-[10px] text-emerald-500 font-bold uppercase tracking-wider">
                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -161,7 +161,7 @@ const App: React.FC = () => {
             <button 
               onClick={() => setIsLiveSyncing(!isLiveSyncing)}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold transition-all uppercase tracking-widest shadow-md ${
-                isLiveSyncing ? 'bg-rose-500 text-white hover:bg-rose-600' : 'indigo-gradient text-white hover:shadow-lg hover:-translate-y-0.5'
+                isLiveSyncing ? 'bg-rose-500 text-white hover:bg-rose-600' : 'orange-gradient text-white hover:shadow-lg hover:-translate-y-0.5'
               }`}
             >
               <Zap size={14} fill={isLiveSyncing ? 'currentColor' : 'none'} />
@@ -169,7 +169,7 @@ const App: React.FC = () => {
             </button>
             <button 
               onClick={() => setIsIntegrationsOpen(true)}
-              className="px-5 py-2.5 rounded-full text-xs font-bold bg-white border border-[#d1d9e6] text-[#003366] hover:bg-gray-50 transition-all uppercase tracking-widest"
+              className="px-5 py-2.5 rounded-full text-xs font-bold bg-white border border-[#fed7aa] text-[#9a3412] hover:bg-gray-50 transition-all uppercase tracking-widest"
             >
               Channels
             </button>
@@ -181,9 +181,9 @@ const App: React.FC = () => {
         {!report && !isLoading ? (
           <div className="max-w-4xl mx-auto text-center py-20 space-y-12">
             <div className="space-y-6">
-              <h2 className="text-6xl font-black text-[#003366] tracking-tight leading-tight">
+              <h2 className="text-6xl font-black text-[#9a3412] tracking-tight leading-tight">
                 Global Network <br/>
-                <span className="indigo-accent">Sentiment Control.</span>
+                <span className="orange-accent">Sentiment Control.</span>
               </h2>
               <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium">
                 Unified intelligence across Google, Reddit, Yelp, Facebook, LinkedIn, and Twitter. Transform social noise into operational fuel for IndiGo.
@@ -191,7 +191,7 @@ const App: React.FC = () => {
             </div>
             <button 
               onClick={startInitialAnalysis}
-              className="px-14 py-5 gradient-bg text-white font-black rounded-full shadow-2xl shadow-indigo-900/30 hover:scale-105 active:scale-95 transition-all uppercase tracking-[3px]"
+              className="px-14 py-5 gradient-bg text-white font-black rounded-full shadow-2xl shadow-orange-900/30 hover:scale-105 active:scale-95 transition-all uppercase tracking-[3px]"
             >
               Initialize Intelligence
             </button>
@@ -201,20 +201,20 @@ const App: React.FC = () => {
             {/* Live Feed Sidebar */}
             <div className="lg:col-span-3 space-y-6">
               <div className="glass-card rounded-[2rem] flex flex-col h-[750px] overflow-hidden">
-                <div className="p-6 border-b border-[#d1d9e6] flex items-center justify-between bg-white/50">
-                  <h3 className="font-bold text-[#003366] flex items-center gap-2 uppercase text-xs tracking-widest">
-                    <Activity size={16} className="indigo-accent" />
+                <div className="p-6 border-b border-[#fed7aa] flex items-center justify-between bg-white/50">
+                  <h3 className="font-bold text-[#9a3412] flex items-center gap-2 uppercase text-xs tracking-widest">
+                    <Activity size={16} className="orange-accent" />
                     Operational Stream
                   </h3>
-                  {isBackgroundUpdating && <Loader2 size={14} className="animate-spin indigo-accent" />}
+                  {isBackgroundUpdating && <Loader2 size={14} className="animate-spin orange-accent" />}
                 </div>
                 <div className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
                   {reviews.map((rev) => (
-                    <div key={rev.id} className="p-4 bg-white/80 rounded-2xl border border-[#d1d9e6] hover:border-indigo-400 transition-all shadow-sm">
+                    <div key={rev.id} className="p-4 bg-white/80 rounded-2xl border border-[#fed7aa] hover:border-orange-400 transition-all shadow-sm">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
                           <SourceIcon source={rev.source} />
-                          <span className="text-[10px] font-black uppercase text-[#003366] tracking-tighter opacity-60">{rev.source}</span>
+                          <span className="text-[10px] font-black uppercase text-[#9a3412] tracking-tighter opacity-60">{rev.source}</span>
                         </div>
                         <span className="text-[9px] text-gray-400 font-bold">
                           {rev.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -232,11 +232,11 @@ const App: React.FC = () => {
               {isLoading ? (
                 <div className="h-full flex flex-col items-center justify-center py-40 space-y-8">
                   <div className="relative">
-                    <div className="w-24 h-24 border-8 border-indigo-100 border-t-[#003366] rounded-full animate-spin"></div>
-                    <Plane className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#003366]" size={32} />
+                    <div className="w-24 h-24 border-8 border-orange-100 border-t-[#9a3412] rounded-full animate-spin"></div>
+                    <Plane className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#9a3412]" size={32} />
                   </div>
                   <div className="text-center">
-                    <p className="font-black text-[#003366] uppercase tracking-[4px] mb-2 text-xl">Operational Uplink</p>
+                    <p className="font-black text-[#9a3412] uppercase tracking-[4px] mb-2 text-xl">Operational Uplink</p>
                     <p className="text-sm text-gray-400 italic font-medium">Processing global feedback threads...</p>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ const App: React.FC = () => {
                   <div className="flex items-center gap-3 overflow-x-auto pb-4 no-scrollbar">
                     <button 
                       onClick={() => setActiveCategory(null)}
-                      className={`px-6 py-3 rounded-full text-[10px] font-black whitespace-nowrap transition-all uppercase tracking-widest ${!activeCategory ? 'gradient-bg text-white shadow-lg' : 'bg-white text-[#003366] border border-[#d1d9e6] hover:bg-gray-50'}`}
+                      className={`px-6 py-3 rounded-full text-[10px] font-black whitespace-nowrap transition-all uppercase tracking-widest ${!activeCategory ? 'gradient-bg text-white shadow-lg' : 'bg-white text-[#9a3412] border border-[#fed7aa] hover:bg-gray-50'}`}
                     >
                       Entire Fleet
                     </button>
@@ -254,7 +254,7 @@ const App: React.FC = () => {
                       <button 
                         key={i}
                         onClick={() => setActiveCategory(cat.name)}
-                        className={`px-6 py-3 rounded-full text-[10px] font-black whitespace-nowrap transition-all flex items-center gap-3 uppercase tracking-widest ${activeCategory === cat.name ? 'gradient-bg text-white shadow-lg' : 'bg-white text-[#003366] border border-[#d1d9e6] hover:bg-gray-50'}`}
+                        className={`px-6 py-3 rounded-full text-[10px] font-black whitespace-nowrap transition-all flex items-center gap-3 uppercase tracking-widest ${activeCategory === cat.name ? 'gradient-bg text-white shadow-lg' : 'bg-white text-[#9a3412] border border-[#fed7aa] hover:bg-gray-50'}`}
                       >
                         {cat.name}
                         <span className={`px-2 py-0.5 rounded text-[9px] ${cat.sentimentScore > 0 ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'}`}>
@@ -268,11 +268,11 @@ const App: React.FC = () => {
                     {/* Trend Chart */}
                     <div className="glass-card p-8 rounded-[2.5rem] relative overflow-hidden">
                       <div className="flex items-center justify-between mb-8">
-                        <h3 className="font-black text-[#003366] uppercase text-xs tracking-widest flex items-center gap-2">
+                        <h3 className="font-black text-[#9a3412] uppercase text-xs tracking-widest flex items-center gap-2">
                           <TrendingUp size={16} />
                           Sentiment Trajectory
                         </h3>
-                        <div className="text-[9px] font-bold text-indigo-400 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100 uppercase">
+                        <div className="text-[9px] font-bold text-orange-400 bg-orange-50 px-3 py-1 rounded-full border border-orange-100 uppercase">
                           Dynamic Feed
                         </div>
                       </div>
@@ -282,7 +282,7 @@ const App: React.FC = () => {
                     {/* Word Cloud */}
                     <div className="glass-card p-8 rounded-[2.5rem]">
                       <div className="flex items-center justify-between mb-8">
-                        <h3 className="font-black text-[#003366] uppercase text-xs tracking-widest flex items-center gap-2">
+                        <h3 className="font-black text-[#9a3412] uppercase text-xs tracking-widest flex items-center gap-2">
                           <LayoutGrid size={16} />
                           Keyword Pulse
                         </h3>
@@ -293,17 +293,17 @@ const App: React.FC = () => {
                   </div>
 
                   {/* Summary */}
-                  <div className="glass-card p-10 rounded-[2.5rem] bg-gradient-to-br from-white to-indigo-50/30 relative border-l-[12px] border-l-[#003366]">
+                  <div className="glass-card p-10 rounded-[2.5rem] bg-gradient-to-br from-white to-orange-50/30 relative border-l-[12px] border-l-[#9a3412]">
                     <div className="flex items-center gap-4 mb-8">
-                      <div className="w-12 h-12 indigo-gradient rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-300">
+                      <div className="w-12 h-12 orange-gradient rounded-2xl flex items-center justify-center shadow-lg shadow-orange-300">
                         <MessageSquare className="text-white" size={24} />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black text-[#003366] uppercase tracking-tight">Executive Ops Summary</h3>
-                        <p className="text-[10px] text-indigo-400 uppercase tracking-[3px] font-bold">AI Intelligence Unit</p>
+                        <h3 className="text-2xl font-black text-[#9a3412] uppercase tracking-tight">Executive Ops Summary</h3>
+                        <p className="text-[10px] text-orange-400 uppercase tracking-[3px] font-bold">AI Intelligence Unit</p>
                       </div>
                     </div>
-                    <p className="text-[#003366]/80 leading-relaxed text-xl font-medium">
+                    <p className="text-[#9a3412]/80 leading-relaxed text-xl font-medium">
                       "{report.executiveSummary}"
                     </p>
                   </div>
@@ -311,13 +311,13 @@ const App: React.FC = () => {
                   {/* Action Areas */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {report.actionableAreas.map((area, idx) => (
-                      <div key={idx} className="glass-card p-8 rounded-[2rem] group hover:scale-[1.02] transition-all border-b-4 border-b-[#0073CF]">
+                      <div key={idx} className="glass-card p-8 rounded-[2rem] group hover:scale-[1.02] transition-all border-b-4 border-b-[#f97316]">
                         <div className={`text-[9px] font-black uppercase tracking-[2px] mb-6 px-4 py-2 rounded-full w-fit ${
-                          area.impact === 'High' ? 'gradient-bg text-white shadow-md' : 'bg-gray-100 text-[#003366]'
+                          area.impact === 'High' ? 'gradient-bg text-white shadow-md' : 'bg-gray-100 text-[#9a3412]'
                         }`}>
                           {area.impact} Priority
                         </div>
-                        <h4 className="font-black text-[#003366] mb-4 text-sm uppercase tracking-tight leading-tight">{area.title}</h4>
+                        <h4 className="font-black text-[#9a3412] mb-4 text-sm uppercase tracking-tight leading-tight">{area.title}</h4>
                         <p className="text-xs text-gray-500 leading-relaxed font-medium">{area.description}</p>
                       </div>
                     ))}
