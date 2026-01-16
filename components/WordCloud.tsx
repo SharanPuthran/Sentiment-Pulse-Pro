@@ -12,11 +12,11 @@ const WordCloud: React.FC<Props> = ({ items }) => {
   const getSize = (val: number) => {
     const range = maxVal - minVal || 1;
     const normalized = (val - minVal) / range;
-    return 11 + normalized * 22; 
+    return 12 + normalized * 24; 
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-5 p-6 min-h-[250px] bg-[#fcfbf8] rounded-xl border border-[#eeebe3]">
+    <div className="flex flex-wrap items-center justify-center gap-6 p-6 min-h-[250px] bg-white/40 rounded-3xl border border-[#d1d9e6]">
       {items.map((item, idx) => (
         <span
           key={idx}
@@ -25,8 +25,8 @@ const WordCloud: React.FC<Props> = ({ items }) => {
             opacity: 0.7 + (item.value / maxVal) * 0.3
           }}
           className={`
-            cursor-default transition-all duration-300 hover:scale-110 hover:opacity-100 font-medium tracking-tight uppercase
-            ${item.sentiment === 'praise' ? 'text-[#c4a468]' : 'text-[#2d2926] opacity-70'}
+            cursor-default transition-all duration-300 hover:scale-115 hover:opacity-100 font-bold tracking-tighter uppercase
+            ${item.sentiment === 'praise' ? 'text-[#0073CF]' : 'text-[#003366] opacity-60'}
           `}
           title={`${item.sentiment}: ${item.value} mentions`}
         >

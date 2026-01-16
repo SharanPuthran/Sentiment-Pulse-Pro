@@ -10,14 +10,14 @@ export const analyzeReviews = async (rawText: string, categoryFilter?: string): 
 
   const response = await ai.models.generateContent({
     model: "gemini-3-pro-preview",
-    contents: `You are monitoring live feedback for ETIHAD AIRWAYS. 
-    Analyze the following batch of reviews across multi-channel social sources and provide a structured JSON report. 
+    contents: `You are monitoring live feedback for INDIGO AIRLINES. 
+    Analyze the following batch of reviews across multi-channel social sources (Google, Reddit, Yelp, Facebook, LinkedIn, Twitter) and provide a structured JSON report. 
     ${filterContext}
-    1. Executive Summary: Summarize the current vibe of the guest experience.
-    2. Actionable Areas: Identify top 3 issues specific to Etihad's premium service (Lounge at AUH, Cabin Crew, The Residence/First class, Business class, Guest services).
-    3. Sentiment Trend: Plot a chronological series of scores.
-    4. Keyword Cloud: Extract prominent luxury and service terms.
-    5. Categories: Group feedback into: 'First/Business Class', 'Economy Experience', 'Etihad Guest (Loyalty)', 'Airport/Lounge Services', 'Crew Performance'.
+    1. Executive Summary: Summarize the current operational performance and guest sentiment.
+    2. Actionable Areas: Identify top 3 issues specific to Indigo's low-cost carrier model (On-time performance, Ground staff, Cabin comfort, Web Check-in, Pricing/Refunds).
+    3. Sentiment Trend: Plot a chronological series of scores (-1 to 1).
+    4. Keyword Cloud: Extract prominent operational and service terms.
+    5. Categories: Group feedback into: 'Ground Operations', 'In-Flight Service', 'Booking & Tech', 'Baggage & Logistics', 'Punctuality'.
 
     Reviews Batch:
     ${rawText}`,
@@ -92,7 +92,7 @@ export const getChatResponse = async (
 ) => {
   const ai = new GoogleGenAI({ apiKey: API_KEY });
   const config: any = {
-    systemInstruction: "You are an expert aviation guest-experience analyst for Etihad Airways. Assist with deep-dive analysis of premium service feedback.",
+    systemInstruction: "You are an expert operational analyst for Indigo Airlines. You help internal teams understand guest sentiment and operational efficiency from social feed data.",
   };
   if (useThinking) {
     config.thinkingConfig = { thinkingBudget: 32768 };

@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etihad Horizon - Sentiment Intelligence</title>
+    <title>IndiGo - Sentiment Intelligence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fcfbf8;
+            background-color: #f0f4f8;
+            color: #1a202c;
         }
-        h1, h2, h3 {
-            font-family: 'Inter', sans-serif;
-        }
-        .etihad-gold { color: #c4a468; }
-        .etihad-chocolate { color: #2d2926; }
+        .indigo-primary { color: #003366; }
+        .indigo-accent { color: #0073CF; }
         .gradient-bg {
-            background: linear-gradient(135deg, #2d2926 0%, #4a443f 100%);
+            background: linear-gradient(135deg, #003366 0%, #005599 100%);
         }
-        .gold-gradient {
-            background: linear-gradient(135deg, #c4a468 0%, #e5d1a4 100%);
+        .indigo-gradient {
+            background: linear-gradient(135deg, #0073CF 0%, #40A9FF 100%);
         }
-        .premium-card {
-            background: white;
-            border: 1px solid #eeebe3;
-            box-shadow: 0 4px 20px -5px rgba(45, 41, 38, 0.05);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 51, 102, 0.05);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 <script type="importmap">

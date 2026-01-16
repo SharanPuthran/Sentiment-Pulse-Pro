@@ -39,29 +39,28 @@ const ChatBot: React.FC = () => {
         setMessages(prev => [...prev, { role: 'model', text: response }]);
       }
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', text: "I encountered an error. Please try again." }]);
+      setMessages(prev => [...prev, { role: 'model', text: "Operational error occurred. Please retry your query." }]);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-[100]">
       {isOpen ? (
-        <div className="w-[400px] h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-100 overflow-hidden animate-in slide-in-from-bottom-4">
-          <div className="gradient-bg p-4 flex items-center justify-between text-white">
+        <div className="w-[400px] h-[600px] bg-white rounded-[2.5rem] shadow-2xl flex flex-col border border-indigo-100 overflow-hidden animate-in slide-in-from-bottom-4">
+          <div className="gradient-bg p-6 flex items-center justify-between text-white">
             <div className="flex items-center gap-2">
               <MessageSquare size={20} />
-              <span className="font-semibold">Sentiment Assistant</span>
+              <span className="font-black uppercase tracking-widest text-sm">Ops Assistant</span>
             </div>
             <div className="flex items-center gap-3">
               <button 
                 onClick={() => setIsThinkingMode(!isThinkingMode)}
-                className={`p-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-medium ${isThinkingMode ? 'bg-white text-indigo-600' : 'bg-white/20 text-white'}`}
-                title="Thinking Mode uses more compute for complex reasoning"
+                className={`p-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-[10px] font-black uppercase tracking-tighter ${isThinkingMode ? 'bg-white text-[#003366]' : 'bg-white/20 text-white'}`}
               >
                 <Brain size={14} />
-                {isThinkingMode ? 'Thinking ON' : 'Normal'}
+                {isThinkingMode ? 'Reasoning ON' : 'Normal'}
               </button>
               <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded">
                 <X size={20} />
@@ -69,18 +68,18 @@ const ChatBot: React.FC = () => {
             </div>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-indigo-50/20 no-scrollbar">
             {messages.length === 0 && (
-              <div className="text-center py-10 text-gray-400">
-                <p className="text-sm">Ask me anything about your sentiment data!</p>
+              <div className="text-center py-10 text-indigo-400">
+                <p className="text-xs font-bold uppercase tracking-widest opacity-60">Ready for operational queries</p>
               </div>
             )}
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${
+                <div className={`max-w-[85%] p-4 rounded-3xl text-sm leading-relaxed ${
                   msg.role === 'user' 
-                    ? 'bg-indigo-600 text-white rounded-tr-none' 
-                    : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none'
+                    ? 'indigo-gradient text-white rounded-tr-none shadow-md' 
+                    : 'bg-white text-[#003366] shadow-sm border border-indigo-100 rounded-tl-none font-medium'
                 }`}>
                   {msg.text}
                 </div>
@@ -88,30 +87,30 @@ const ChatBot: React.FC = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 rounded-tl-none flex items-center gap-2">
-                  <Loader2 size={16} className="animate-spin text-indigo-500" />
-                  <span className="text-xs text-gray-500 italic">
-                    {isThinkingMode ? 'Analyzing with Deep Reasoning...' : 'Thinking...'}
+                <div className="bg-white p-4 rounded-3xl shadow-sm border border-indigo-100 rounded-tl-none flex items-center gap-2">
+                  <Loader2 size={16} className="animate-spin text-[#0073CF]" />
+                  <span className="text-[10px] text-indigo-400 font-black uppercase tracking-widest">
+                    {isThinkingMode ? 'Deep Analysis...' : 'Consulting Gemini...'}
                   </span>
                 </div>
               </div>
             )}
           </div>
 
-          <div className="p-4 border-t bg-white">
+          <div className="p-6 border-t bg-white">
             <div className="flex gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Type a message..."
-                className="flex-1 px-4 py-2 bg-gray-100 border-none rounded-full text-sm focus:ring-2 focus:ring-indigo-500 text-gray-900"
+                placeholder="Ask about Indigo sentiment..."
+                className="flex-1 px-5 py-3 bg-indigo-50/50 border-none rounded-full text-sm font-medium focus:ring-2 focus:ring-indigo-500 text-[#003366]"
               />
               <button 
                 onClick={handleSend}
                 disabled={isLoading}
-                className="p-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                className="p-3 gradient-bg text-white rounded-full hover:shadow-lg transition-all disabled:opacity-50"
               >
                 <Send size={18} />
               </button>
@@ -121,9 +120,9 @@ const ChatBot: React.FC = () => {
       ) : (
         <button 
           onClick={() => setIsOpen(true)}
-          className="gradient-bg p-4 rounded-full shadow-lg text-white hover:scale-105 transition-transform"
+          className="gradient-bg p-5 rounded-full shadow-2xl text-white hover:scale-110 transition-transform border-4 border-white"
         >
-          <MessageSquare size={24} />
+          <MessageSquare size={28} />
         </button>
       )}
     </div>
