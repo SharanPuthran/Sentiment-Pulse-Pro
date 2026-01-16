@@ -18,9 +18,9 @@ interface Props {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     const score = payload[0].value;
-    const colorClass = score > 0 ? 'text-[#0073CF]' : score < 0 ? 'text-[#003366]' : 'text-gray-400';
+    const colorClass = score > 0 ? 'text-[#f97316]' : score < 0 ? 'text-[#9a3412]' : 'text-gray-400';
     return (
-      <div className="bg-white p-4 border border-[#d1d9e6] rounded-2xl shadow-xl">
+      <div className="bg-white p-4 border border-[#fed7aa] rounded-2xl shadow-xl">
         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{label}</p>
         <p className={`text-2xl font-black ${colorClass}`}>
           {(score * 100).toFixed(0)}%
@@ -37,12 +37,12 @@ const SentimentChart: React.FC<Props> = ({ data }) => {
     <div className="h-[320px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#d1d9e6" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#fed7aa" />
           <XAxis 
             dataKey="date" 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fill: '#003366', fontSize: 10, fontWeight: 800 }}
+            tick={{ fill: '#9a3412', fontSize: 10, fontWeight: 800 }}
             dy={10}
           />
           <YAxis 
@@ -51,15 +51,15 @@ const SentimentChart: React.FC<Props> = ({ data }) => {
             tickLine={false} 
             tick={{ fill: '#94a3b8', fontSize: 10 }}
           />
-          <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#0073CF', strokeWidth: 2 }} />
-          <ReferenceLine y={0} stroke="#d1d9e6" strokeWidth={2} />
+          <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#f97316', strokeWidth: 2 }} />
+          <ReferenceLine y={0} stroke="#fed7aa" strokeWidth={2} />
           <Line 
             type="monotone" 
             dataKey="score" 
-            stroke="#003366" 
+            stroke="#9a3412"
             strokeWidth={5} 
-            dot={{ r: 6, fill: '#0073CF', strokeWidth: 4, stroke: '#fff' }}
-            activeDot={{ r: 9, strokeWidth: 0, fill: '#003366' }}
+            dot={{ r: 6, fill: '#f97316', strokeWidth: 4, stroke: '#fff' }}
+            activeDot={{ r: 9, strokeWidth: 0, fill: '#9a3412' }}
             animationDuration={2000}
           />
         </LineChart>
