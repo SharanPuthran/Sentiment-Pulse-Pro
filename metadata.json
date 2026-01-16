@@ -1,0 +1,7 @@
+{
+  "name": "SentimentPulse - AI Customer Insights",
+  "description": "A world-class customer sentiment dashboard that transforms raw reviews into actionable visual reports using Gemini 3 Pro. Features sentiment trending, complaint word clouds, and deep-reasoning executive summaries.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
